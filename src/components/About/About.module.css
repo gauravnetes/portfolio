@@ -1,0 +1,121 @@
+.section { background: var(--bg-secondary); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.text p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+.text p:last-child { margin-bottom: 0; }
+.text strong { color: var(--text-primary); font-weight: 600; }
+.text em { color: var(--accent); font-style: normal; }
+
+/* Timeline */
+.timelineTitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
+}
+.timelineList { display: flex; flex-direction: column; }
+
+.timelineYear {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 28px;
+}
+.timelineYear::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.timelineYear:last-child { padding-bottom: 0; }
+.timelineYear:last-child::before { display: none; }
+
+.yearLabel {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  padding-top: 2px;
+  position: relative;
+}
+.yearLabel::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.yearItems { display: flex; flex-direction: column; gap: 8px; }
+.yearItems li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+  transition: var(--transition);
+}
+.yearItems li:hover {
+  border-left-color: var(--accent);
+  color: var(--text-primary);
+  padding-left: 16px;
+}
+
+/* Off-topic */
+.offTopicContainer {
+  margin-top: 32px;
+}
+
+.expandButton {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 16px;
+}
+
+.expandButton:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.offTopicContent {
+  animation: fadeIn 0.3s ease-in-out;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent-border);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; gap: 48px; }
+}

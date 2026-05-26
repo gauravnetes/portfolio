@@ -1,0 +1,26 @@
+.section {
+  background: var(--bg-secondary);
+}
+
+.graphContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+/* Make sure the text color matches the theme */
+.graphContainer :global(text) {
+  fill: var(--text-secondary) !important;
+  font-family: var(--font-sans) !important;
+}
+
+@media (max-width: 900px) {
+  .graphContainer {
+    justify-content: flex-start;
+  }
+}
