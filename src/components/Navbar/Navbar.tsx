@@ -34,6 +34,8 @@ export function Navbar() {
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
+    if (!mounted) return;
+
     const handleScroll = () => {
       const sections = document.querySelectorAll('section[id]');
       const scrollY = window.scrollY + 120;
@@ -47,7 +49,7 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mounted]);
 
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
